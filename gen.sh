@@ -33,7 +33,7 @@ TARGET="$REPO_ROOT"/etcdserver/etcdserverpb/rpc.proto
 "${PBHH_CMD[@]}" "$TARGET"
 "${GRPC_CMD[@]}" "$TARGET"
 
-"${PBHH_CMD[@]}" "$REPO_ROOT"/gopath.proto/src/github.com/gogo/protobuf/gogoproto/gogo.proto
-"${PBHH_CMD[@]}" "$REPO_ROOT"/mvcc/mvccpb/kv.proto
-"${PBHH_CMD[@]}" "$REPO_ROOT"/auth/authpb/auth.proto
-"${PBHH_CMD[@]}" "$REPO_ROOT"/gopath.proto/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api/annotations.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/gopath.proto/src/github.com/gogo/protobuf/gogoproto/*.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/mvcc/mvccpb/*.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/auth/authpb/*.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/gopath.proto/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api/*.proto
