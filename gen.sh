@@ -12,6 +12,7 @@ if (( $# != 1 )); then
 fi
 
 REPO_ROOT=$1
+set -e
 
 CMD=(
     protoc
@@ -20,11 +21,19 @@ CMD=(
     -I "$REPO_ROOT"/gopath.proto/src/github.com/gogo/protobuf/protobuf
     -I "$REPO_ROOT"/etcdserver/etcdserverpb
     -I "$REPO_ROOT"/gopath.proto/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis
-    "$REPO_ROOT"/etcdserver/etcdserverpb/rpc.proto
+    -I "$REPO_ROOT"/mvcc/mvccpb
+    -I "$REPO_ROOT"/auth/authpb
 )
-
-set -e
-
 grpc_cpp_plugin=$(which grpc_cpp_plugin)
-"${CMD[@]}" --grpc_out=. --plugin=protoc-gen-grpc="$grpc_cpp_plugin"
-"${CMD[@]}" --cpp_out=.
+PBHH_CMD=("${CMD[@]}" --cpp_out=.)
+GRPC_CMD=("${CMD[@]}" --grpc_out=. --plugin=protoc-gen-grpc="$grpc_cpp_plugin")
+
+TARGET="$REPO_ROOT"/etcdserver/etcdserverpb/rpc.proto
+
+"${PBHH_CMD[@]}" "$TARGET"
+"${GRPC_CMD[@]}" "$TARGET"
+
+"${PBHH_CMD[@]}" "$REPO_ROOT"/gopath.proto/src/github.com/gogo/protobuf/gogoproto/gogo.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/mvcc/mvccpb/kv.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/auth/authpb/auth.proto
+"${PBHH_CMD[@]}" "$REPO_ROOT"/gopath.proto/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api/annotations.proto
