@@ -12,5 +12,5 @@ find_package(protobuf CONFIG REQUIRED)
 
 add_library(etcdpp SHARED generated/rpc.grpc.pb.cc generated/rpc.pb.cc)
 target_include_directories(etcdpp PUBLIC generated)
-target_link_libraries(etcdpp PRIVATE gRPC)
-target_link_libraries(etcdpp PRIVATE protobuf)
+target_link_libraries(etcdpp PRIVATE gRPC::gpr gRPC::grpc gRPC::grpc++ gRPC::grpc_cronet)
+target_link_libraries(etcdpp PRIVATE protobuf::libprotoc protobuf::libprotobuf)
