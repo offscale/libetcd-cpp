@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 configure_file(lib/version.h.in version.h @ONLY)
 
-find_package(gRPC CONFIG REQUIRED)
-find_package(protobuf CONFIG REQUIRED)
+find_package(gRPC REQUIRED)
+find_package(protobuf REQUIRED)
 
 file(GLOB_RECURSE protos LIST_DIRECTORIES false "proto/*.proto")
 protobuf_generate_cpp(proto_ccs proto_hs ${protos})

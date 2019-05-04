@@ -6,7 +6,7 @@ vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
     URL git@github.com:SamuelMarks/libetcd-cpp.git
     REF master
-    SHA512 36bb77dbd903db3d5f122d921feb2ed946f96fbc81e8e93716f7567a59fb6ce8b15d2349158d1923be65c42b974c29eddc61592d65c516dac041195babac8abb
+    SHA512 5cde86d103586bd95113cf6a1c0700cac5b4e1fb2d6f8af8eebba92e614e3f70a842affb6ed873735e94d4e16d66528161c98a65e5425866a2033ed513f3fb93
 )
 
 vcpkg_configure_cmake(
