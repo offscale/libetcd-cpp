@@ -1,16 +1,13 @@
 include(vcpkg_common_functions)
 
-set(VCPKG_BUILD_TYPE release)
+# set(VCPKG_BUILD_TYPE release)
 
-vcpkg_from_github(
+vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO nokia/etcd-cpp-apiv3
+    URL git@github.com:SamuelMarks/libetcd-cpp.git
     REF master
-    SHA512 f16d38e527f91adf7a5859c73efe281deb307ffed38e1ddef64671e258fcc77d75566ebb05817a77e05a0f098bb1159488f89106a4840da568936e9158f23505
-    HEAD_REF master
+    SHA512 36bb77dbd903db3d5f122d921feb2ed946f96fbc81e8e93716f7567a59fb6ce8b15d2349158d1923be65c42b974c29eddc61592d65c516dac041195babac8abb
 )
-
-file(COPY "${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt" DESTINATION ${SOURCE_PATH})
 
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}
