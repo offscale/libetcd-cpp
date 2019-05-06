@@ -35,3 +35,6 @@
 # IDEs
 .idea
 cmake-build-debug/
+
+
+generated
