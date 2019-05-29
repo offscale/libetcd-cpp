@@ -60,7 +60,14 @@ message(STATUS "Proto ccs: ${proto_ccs}")
 message(STATUS "Proto hs: ${proto_hs}")
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
-add_library(etcdpp SHARED ${proto_ccs})
+if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+add_library(etcdpp STATIC ${proto_ccs})
+if (WIN32)
+  target_compile_definitions(etcdpp PRIVATE "_WIN32_WINNT=0x600")
+endif()
 
 target_include_directories(etcdpp PRIVATE "generated/")
 target_include_directories(etcdpp INTERFACE "${CMAKE_INSTALL_PREFIX}/include")
