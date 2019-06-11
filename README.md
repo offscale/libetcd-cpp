@@ -1,18 +1,21 @@
 libetcd-cpp
 =================
-libetcd-cpp is a C++ library.
+[gRPC](https://grpc.io) C++ client for [etcd]([http://etcd.io](http://etcd.io/)).
+
+gRPC and protobuf files were copied from etcd source code and a bit simplified. Current protocol version is 3.3. cmake will automatically generate C++ sources and compile them for you.
 
 ## Dependencies
 
-  - C++ compiler
-  - [CMake](https://cmake.org)
-  - [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg)
+- grpc
+- protobuf
 
 ## Developer workflow
 
-    mkdir cmake-build-debug && cd $_
-    cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE='<replace with path to vcpkg.cmake>" ..
-    cmake --build ..
+```sh
+mkdir cmake-build-debug && cd $_
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE='<replace with path to vcpkg.cmake>" ..
+cmake --build .
+```
 
 ## License
 

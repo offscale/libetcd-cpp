@@ -4,8 +4,6 @@ project(libetcd-cpp VERSION 0.0.1)
 
 set(CMAKE_CXX_STANDARD 17)
 
-configure_file(lib/version.h.in version.h @ONLY)
-
 find_package(gRPC REQUIRED)
 find_package(protobuf REQUIRED)
 
