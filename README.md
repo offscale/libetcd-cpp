@@ -1,8 +1,8 @@
 libetcd-cpp
 =================
-[gRPC](https://grpc.io) C++ client for [etcd]([http://etcd.io](http://etcd.io/)).
+[gRPC](https://grpc.io) C++ client for [etcd](http://etcd.io/).
 
-gRPC and protobuf files were copied from etcd source code and a bit simplified. Current protocol version is 3.3. cmake will automatically generate C++ sources and compile them for you.
+gRPC and protobuf files were copied from etcd source code and a bit simplified. Current protocol version is 3.3. CMake will automatically generate C++ sources and compile them for you.
 
 ## Dependencies
 
