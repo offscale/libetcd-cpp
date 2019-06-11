@@ -13,7 +13,9 @@ gRPC and protobuf files were copied from etcd source code and a bit simplified. 
 
 ```sh
 mkdir cmake-build-debug && cd $_
-cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE='<replace with path to vcpkg.cmake>" ..
+
+# assuming vcpkg is used to manage c++ libraries
+cmake -DCMAKE_TOOLCHAIN_FILE="<replace with path to vcpkg.cmake>" ..
 cmake --build .
 ```
 
