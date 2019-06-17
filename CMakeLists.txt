@@ -76,6 +76,6 @@ target_link_libraries(etcdpp PRIVATE protobuf::libprotoc protobuf::libprotobuf)
 install(TARGETS etcdpp EXPORT etcdpp DESTINATION lib)
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Release")
-	install(FILES ${proto_hs} DESTINATION include/etcdpp/)
+	install(FILES ${proto_hs} DESTINATION include/libetcd/)
 	install(EXPORT etcdpp DESTINATION share/etcdpp/ FILE etcdppConfig.cmake)
 endif()
