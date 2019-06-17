@@ -62,20 +62,20 @@ if ("${CMAKE_BUILD_TYPE}" STREQUAL "")
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-add_library(etcdpp STATIC ${proto_ccs})
+add_library(etcdcpp STATIC ${proto_ccs})
 if (WIN32)
-  target_compile_definitions(etcdpp PRIVATE "_WIN32_WINNT=0x600")
+  target_compile_definitions(etcdcpp PRIVATE "_WIN32_WINNT=0x600")
 endif()
 
-target_include_directories(etcdpp PRIVATE "generated/")
-target_include_directories(etcdpp INTERFACE "${CMAKE_INSTALL_PREFIX}/include")
+target_include_directories(etcdcpp PRIVATE "generated/")
+target_include_directories(etcdcpp INTERFACE "${CMAKE_INSTALL_PREFIX}/include")
 
-target_link_libraries(etcdpp PRIVATE gRPC::gpr gRPC::grpc gRPC::grpc++ gRPC::grpc_cronet)
-target_link_libraries(etcdpp PRIVATE protobuf::libprotoc protobuf::libprotobuf)
+target_link_libraries(etcdcpp PRIVATE gRPC::gpr gRPC::grpc gRPC::grpc++ gRPC::grpc_cronet)
+target_link_libraries(etcdcpp PRIVATE protobuf::libprotoc protobuf::libprotobuf)
 
-install(TARGETS etcdpp EXPORT etcdpp DESTINATION lib)
+install(TARGETS etcdcpp EXPORT etcdcpp DESTINATION lib)
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Release")
 	install(FILES ${proto_hs} DESTINATION include/libetcd/)
-	install(EXPORT etcdpp DESTINATION share/etcdpp/ FILE etcdppConfig.cmake)
+	install(EXPORT etcdcpp DESTINATION share/etcdcpp/ FILE etcdcppConfig.cmake)
 endif()
